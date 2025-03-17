@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    container_name: rabbitmq
+    build:
+      context: .
+      dockerfile: Dockerfile.rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - "./container-data/rabbitmq-data:/var/lib/rabbitmq/mnesia/"
+    environment:
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
