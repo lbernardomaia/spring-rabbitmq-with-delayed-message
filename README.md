@@ -4,20 +4,18 @@ This is a Dockerized Spring Boot project that demonstrates the use of
 RabbitMQ with delayed message processing RabbitMQ plugin ([RabbitMQ Delayed Message Exchange](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)) 
 and how retry mechanism can be implemented.
 
+The project has a runner ([Runner.java](src/main/java/com/example/app/Runner.java)) 
+that sends a valid message and an invalid message to the RabbitMQ queue.
+
+The invalid message that cannot be processed will be retried 3 times with a delay of 15 seconds 
+and then sent to the parking lot queue.
+
 ## Prerequisites
 
 - Docker
 - Docker Compose
 - Java 17
 - Gradle
-
-## Building the Project
-
-To build the project, run the following command:
-
-```sh
-./gradlew build
-```
 
 ## Running the Project
 
