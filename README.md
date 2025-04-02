@@ -7,8 +7,27 @@ and how retry mechanism can be implemented.
 The project has a runner ([Runner.java](src/main/java/com/example/app/Runner.java)) 
 that sends a valid message and an invalid message to the RabbitMQ queue.
 
-The invalid message that cannot be processed will be retried 3 times with a delay of 15 seconds 
-and then sent to the parking lot queue.
+The invalid message that cannot be processed will be retried by the [MessageProducer.java](src/main/java/com/example/app/messaging/MessageProducer.java) 3 times with a delay of 15 seconds 
+and then sent to the parking lot queue when the retry limit is reached.
+
+#### Messages example:
+
+The id and message are mandatory fields in the message.
+
+Valid message sent:
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "message": "Random message for UUID: 550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+Invalid message sent:
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
 
 ## Prerequisites
 
