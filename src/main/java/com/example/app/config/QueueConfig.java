@@ -15,7 +15,7 @@ public class QueueConfig {
     private String deadLetterExchange;
 
     @Value("${rabbitmq.requeue.delay.exchange}")
-    String delayExchangeName;
+    private String delayExchangeName;
 
     // Routing keys
     @Value("${rabbitmq.routingKey}")
@@ -23,13 +23,13 @@ public class QueueConfig {
 
     // Queue names
     @Value("${rabbitmq.queue}")
-    String queueName;
+    private String queueName;
 
     @Value("${rabbitmq.deadLetter.queue}")
-    String deadLetterQueueName;
+    private String deadLetterQueueName;
 
     @Value("${rabbitmq.parking_lot.queue}")
-    String parkingLotQueueName;
+    private String parkingLotQueueName;
 
     public static final String X_RETRIES_HEADER = "x-retries";
 
