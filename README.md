@@ -2,7 +2,7 @@
 
 This is a Dockerized Spring Boot project that demonstrates the use of 
 RabbitMQ with delayed message processing RabbitMQ plugin ([RabbitMQ Delayed Message Exchange](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)) 
-and how retry mechanism can be implemented.
+and how the retry mechanism can be implemented.
 
 The project has a runner ([Runner.java](src/main/java/com/example/app/Runner.java)) 
 that sends a valid message and an invalid message to the RabbitMQ queue.
@@ -12,7 +12,7 @@ and then sent to the parking lot queue when the retry limit is reached.
 
 #### Messages example:
 
-The id and message are mandatory fields in the message.
+The ID and message are mandatory fields.
 
 Valid message sent:
 ```json
